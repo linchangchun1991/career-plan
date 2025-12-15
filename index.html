@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>海马职加 HIGHMARK | 职业规划工具</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'sans-serif'],
+              serif: ['Playfair Display', 'serif'],
+              cserif: ['Noto Serif SC', 'serif'],
+            },
+            colors: {
+              background: '#0b1121', // Silicon Valley Deep Navy
+              surface: '#1e293b',    // Lighter Navy
+              gold: '#D4AF37',       // Metallic Gold
+              platinum: '#f1f5f9',   // Off-white
+              subtle: '#94a3b8',     // Muted text
+              success: '#10b981',
+              warning: '#f59e0b',
+            },
+            boxShadow: {
+              'luxury': '0 25px 50px -12px rgba(0, 0, 0, 0.6)',
+              'glow': '0 0 15px rgba(212, 175, 55, 0.15)',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      body {
+        background-color: #0b1121;
+        color: #f1f5f9;
+        font-family: 'Inter', sans-serif;
+      }
+      h1, h2, h3, h4 {
+        font-family: 'Noto Serif SC', 'Playfair Display', serif;
+      }
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0b1121; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #334155; 
+        border-radius: 3px;
+      }
+      /* Hide file input */
+      input[type="file"] {
+        display: none;
+      }
+      .animate-pulse-slow {
+        animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+      
+      /* Print/PDF Specific Styles */
+      @media print {
+        body { background-color: white; color: black; -webkit-print-color-adjust: exact; }
+        .no-print { display: none !important; }
+        .print-break-inside-avoid { page-break-inside: avoid; break-inside: avoid; }
+        .print-break-before { page-break-before: always; }
+        /* Ensure charts don't look weird */
+        .recharts-responsive-container { width: 100% !important; height: 300px !important; }
+        /* Remove shadows for cleaner print */
+        .shadow-luxury, .shadow-md { box-shadow: none !important; border: 1px solid #e2e8f0; }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.561.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.33.0",
+    "recharts": "https://esm.sh/recharts@^3.5.1"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
